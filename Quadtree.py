@@ -38,13 +38,15 @@ class QuadTree:
         self.boundary = boundary
         self.particles = []
         self.color = (255, 255, 255)
+
         self.northWest = None
         self.northEast = None
         self.southWest = None
         self.southEast = None
+
     def subdivide(self):
         parent = self.boundary
-        
+
         boundary_nw = Rectangle(
                 Vector2(
                 parent.position.x ,
@@ -75,18 +77,15 @@ class QuadTree:
             )
 
         self.northWest = QuadTree(self.capacity, boundary_nw)
-        self.northWest.insert(self.particles[0])
-
         self.northEast = QuadTree(self.capacity, boundary_ne)
-        self.northEast.insert(self.particles[0])
-
         self.southWest = QuadTree(self.capacity, boundary_sw)
-        self.southWest.insert(self.particles[0])
-
         self.southEast = QuadTree(self.capacity, boundary_se)
-        self.southEast.insert(self.particles[0])
 
-
+        for i in range(len(self.particles)):
+            self.northWest.insert(self.particles[i])
+            self.northEast.insert(self.particles[i])
+            self.southWest.insert(self.particles[i])
+            self.southEast.insert(self.particles[i])
     def insert(self, particle):
         if self.boundary.containsParticle(particle) == False:
             return False

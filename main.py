@@ -15,7 +15,7 @@ fps = 60
 Background = (0, 0, 0)
 particles = []
 
-NODE_CAPACITY = 1
+NODE_CAPACITY = 2
 
 rangeRect = Rectangle(Vector2(250, 250), Vector2(300, 300))
 rangeRect.color = (190, 210, 55)
@@ -25,15 +25,15 @@ boundary = Rectangle(Vector2(0, 0), Vector2(Width, Height))
 
 quadtree = QuadTree(NODE_CAPACITY, boundary)
 
-for i in range(100):
-    offset = 50
-    x = randint(offset, Width-offset)
-    y = randint(offset, Height-offset)
-    # col = (randint(0, 255), randint(0, 255),randint(0, 255))
-    col = (255, 255, 255)
-    particle = Particle(Vector2(x, y), 6, col)
-    quadtree.insert(particle)
-    particles.append(particle)
+# for i in range(50):
+#     offset = 50
+#     x = randint(offset, Width-offset)
+#     y = randint(offset, Height-offset)
+#     # col = (randint(0, 255), randint(0, 255),randint(0, 255))
+#     col = (255, 255, 255)
+#     particle = Particle(Vector2(x, y), 6, col)
+#     quadtree.insert(particle)
+#     particles.append(particle)
 
 
 # print(points)
