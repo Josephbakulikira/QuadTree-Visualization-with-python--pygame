@@ -9,7 +9,9 @@
       Press Space -> to toggle the query range
 ---
 ### Youtube
-  ##Check out my youtube channel: https://www.youtube.com/channel/UCjPk9YDheKst1FlAf_KSpyA
+
+  ##Check out my youtube channel: https://www.youtube.com/c/Au
+
 ---
 ### Ressources
    ##### wikipedia: https://en.wikipedia.org/wiki/Quadtree
