@@ -10,7 +10,7 @@
 ---
 ### Youtube
 
-  ##Check out my youtube channel: https://www.youtube.com/c/Au
+  ## Check out my youtube channel: https://www.youtube.com/c/Au
 
 ---
 ### Ressources
