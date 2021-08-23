@@ -15,7 +15,7 @@ fps = 60
 Background = (0, 0, 0)
 particles = []
 
-NODE_CAPACITY = 4
+NODE_CAPACITY = 1
 
 rangeRect = Rectangle(Vector2(250, 250), Vector2(300, 300))
 rangeRect.color = (190, 210, 55)
@@ -25,17 +25,19 @@ boundary = Rectangle(Vector2(0, 0), Vector2(Width, Height))
 
 quadtree = QuadTree(NODE_CAPACITY, boundary)
 
-for i in range(500):
-    x = randint(50, Width-50)
-    y = randint(50, Height-50)
-    # col = (randint(0, 255), randint(0, 255),randint(0, 255))
-    col = (255, 255, 255)
-    particle = Particle(Vector2(x, y), 6, col)
-    quadtree.insert(particle)
-    particles.append(particle)
+# for i in range(500):
+#     offset = 50
+#     x = randint(offset, Width-offset)
+#     y = randint(offset, Height-offset)
+#     # col = (randint(0, 255), randint(0, 255),randint(0, 255))
+#     col = (255, 255, 255)
+#     particle = Particle(Vector2(x, y), 6, col)
+#     quadtree.insert(particle)
+#     particles.append(particle)
 
 
 # print(points)
+showRange = False
 run = True
 while run:
     screen.fill(Background)
@@ -48,20 +50,25 @@ while run:
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_ESCAPE:
                 run = False
+            if event.key == pygame.K_SPACE:
+                showRange = not showRange
         if event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
             particle = Particle(Vector2(x, y), 6, (255, 255, 255))
             particles.append(particle)
             quadtree.insert(particle)
-    rangeRect.position.x, rangeRect.position.y = pygame.mouse.get_pos()
+
+
     quadtree.Show(screen)
     for particle in particles:
         particle.draw(screen)
 
+    rangeRect.position.x, rangeRect.position.y = pygame.mouse.get_pos()
     points = quadtree.queryRange(rangeRect)
-    for point in points:
-        point.draw(screen, (245, 80, 225), 10)
-    rangeRect.Draw(screen)
+    if showRange == True:
+        for point in points:
+            point.draw(screen, (245, 80, 225), 10)
+        rangeRect.Draw(screen)
     pygame.display.flip()
 
 pygame.quit()

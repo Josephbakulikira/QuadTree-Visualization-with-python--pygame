@@ -38,7 +38,10 @@ class QuadTree:
         self.boundary = boundary
         self.particles = []
         self.color = (255, 255, 255)
-
+        self.northWest = None
+        self.northEast = None
+        self.southWest = None
+        self.southEast = None
     def subdivide(self):
         parent = self.boundary
         boundary_nw = Rectangle(
@@ -71,20 +74,27 @@ class QuadTree:
             )
 
         self.northWest = QuadTree(self.capacity, boundary_nw)
+        self.northWest.insert(self.particles[0])
         self.northEast = QuadTree(self.capacity, boundary_ne)
+        self.northEast.insert(self.particles[0])
+
         self.southWest = QuadTree(self.capacity, boundary_sw)
+        self.southWest.insert(self.particles[0])
         self.southEast = QuadTree(self.capacity, boundary_se)
+        self.southEast.insert(self.particles[0])
+
 
     def insert(self, particle):
         if self.boundary.containsParticle(particle) == False:
             return False
 
-        if len(self.particles) < self.capacity and hasattr(self, 'northWest') == False:
+        if len(self.particles) < self.capacity and self.northWest == None:
             self.particles.append(particle)
             return True
         else:
-            if not hasattr(self, 'northWest'):
+            if self.northWest == None:
                 self.subdivide()
+
             if self.northWest.insert(particle):
                 return True
             if self.northEast.insert(particle):
@@ -93,7 +103,7 @@ class QuadTree:
                 return True
             if self.southEast.insert(particle):
                 return True
-        return False
+            return False
 
     def queryRange(self, _range):
         particlesInRange = []
@@ -105,7 +115,7 @@ class QuadTree:
                 if _range.containsParticle(particle):
                     particlesInRange.append(particle)
 
-            if hasattr(self, 'northWest'):
+            if self.northWest != None:
                 particlesInRange += self.northWest.queryRange(_range)
                 particlesInRange += self.northEast.queryRange(_range)
                 particlesInRange += self.southWest.queryRange(_range)
@@ -113,10 +123,9 @@ class QuadTree:
 
             return particlesInRange
 
-
     def Show(self, screen):
         self.boundary.Draw(screen)
-        if hasattr(self, 'northWest'):
+        if self.northWest != None:
             self.northWest.Show(screen)
             self.northEast.Show(screen)
             self.southWest.Show(screen)
