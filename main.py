@@ -25,19 +25,19 @@ boundary = Rectangle(Vector2(0, 0), Vector2(Width, Height))
 
 quadtree = QuadTree(NODE_CAPACITY, boundary)
 
-# for i in range(500):
-#     offset = 50
-#     x = randint(offset, Width-offset)
-#     y = randint(offset, Height-offset)
-#     # col = (randint(0, 255), randint(0, 255),randint(0, 255))
-#     col = (255, 255, 255)
-#     particle = Particle(Vector2(x, y), 6, col)
-#     quadtree.insert(particle)
-#     particles.append(particle)
+for i in range(100):
+    offset = 50
+    x = randint(offset, Width-offset)
+    y = randint(offset, Height-offset)
+    # col = (randint(0, 255), randint(0, 255),randint(0, 255))
+    col = (255, 255, 255)
+    particle = Particle(Vector2(x, y), 6, col)
+    quadtree.insert(particle)
+    particles.append(particle)
 
 
 # print(points)
-showRange = False
+showRange = True
 run = True
 while run:
     screen.fill(Background)

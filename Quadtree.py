@@ -44,6 +44,7 @@ class QuadTree:
         self.southEast = None
     def subdivide(self):
         parent = self.boundary
+        
         boundary_nw = Rectangle(
                 Vector2(
                 parent.position.x ,
@@ -75,11 +76,13 @@ class QuadTree:
 
         self.northWest = QuadTree(self.capacity, boundary_nw)
         self.northWest.insert(self.particles[0])
+
         self.northEast = QuadTree(self.capacity, boundary_ne)
         self.northEast.insert(self.particles[0])
 
         self.southWest = QuadTree(self.capacity, boundary_sw)
         self.southWest.insert(self.particles[0])
+
         self.southEast = QuadTree(self.capacity, boundary_se)
         self.southEast.insert(self.particles[0])
 
