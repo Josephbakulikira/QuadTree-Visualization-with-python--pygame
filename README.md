@@ -7,6 +7,7 @@
 ### Controls
       Press Mouse -> to instantiate a particle
       Press Space -> to toggle the query range
+      ESC         -> to close the window(quit) 
 ---
 ### Youtube
 
