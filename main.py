@@ -25,15 +25,15 @@ boundary = Rectangle(Vector2(0, 0), Vector2(Width, Height))
 
 quadtree = QuadTree(NODE_CAPACITY, boundary)
 
-# for i in range(50):
-#     offset = 50
-#     x = randint(offset, Width-offset)
-#     y = randint(offset, Height-offset)
-#     # col = (randint(0, 255), randint(0, 255),randint(0, 255))
-#     col = (255, 255, 255)
-#     particle = Particle(Vector2(x, y), 6, col)
-#     quadtree.insert(particle)
-#     particles.append(particle)
+for i in range(150):
+    offset = 50
+    x = randint(offset, Width-offset)
+    y = randint(offset, Height-offset)
+    # col = (randint(0, 255), randint(0, 255),randint(0, 255))
+    col = (255, 255, 255)
+    particle = Particle(Vector2(x, y), 6, col)
+    quadtree.insert(particle)
+    particles.append(particle)
 
 
 # print(points)
@@ -67,7 +67,7 @@ while run:
     points = quadtree.queryRange(rangeRect)
     if showRange == True:
         for point in points:
-            point.draw(screen, (245, 80, 225), 10)
+            point.draw(screen, (245, 200, 54), 10)
         rangeRect.Draw(screen)
     pygame.display.flip()
 
