@@ -76,9 +76,8 @@ while run:
                 if particle.collide(other) == True:
                     particle.Highlight((255, 42, 53))
 
-
     quadtree.Show(screen)
-    
+
 
     pygame.display.flip()
 
