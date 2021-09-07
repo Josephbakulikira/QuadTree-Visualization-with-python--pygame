@@ -9,6 +9,10 @@
       Press Space -> to toggle the query range
       ESC         -> to close the window(quit) 
 ---
+### Files
+      test.py for a simple quadtree
+      test2.py quadtree with particle collisions
+
 ### Youtube
 
   ## Check out my youtube channel: https://www.youtube.com/c/Auctux
