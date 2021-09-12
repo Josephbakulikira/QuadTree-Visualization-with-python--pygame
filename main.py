@@ -33,6 +33,7 @@ for i in range(150):
 moveParticle = True
 particleCollision = True
 showRange = False
+showQuadtree = True
 run = True
 while run:
     screen.fill(Background)
@@ -54,6 +55,8 @@ while run:
                 particleCollision = moveParticle
             if event.key == pygame.K_r or event.key == pygame.K_SPACE:
                 showRange = not showRange
+            if event.key == pygame.K_RETURN or event.key == pygame.K_q:
+                showQuadtree = not showQuadtree
         if event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
             particle = Particle(Vector2(x, y), RADIUS, (255, 255, 255))
@@ -90,7 +93,8 @@ while run:
                 if particle.collide(other) == True:
                     particle.Highlight((255, 42, 53))
 
-    quadtree.Show(screen)
+    if showQuadtree:
+        quadtree.Show(screen)
 
 
     pygame.display.flip()
