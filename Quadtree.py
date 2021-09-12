@@ -79,20 +79,37 @@ class QuadTree:
     def queryRange(self, _range):
         particlesInRange = []
 
-        if self.boundary.intersects(_range):
-            return particlesInRange
-        else:
-            for particle in self.particles:
-                if _range.containsParticle(particle):
-                    particlesInRange.append(particle)
+        if type(_range) == Circle:
+            if _range.intersects(self.boundary)==False:
+                return particlesInRange
+        elif type(_range) == Rectangle:
+            if _range.intersects(self.boundary)==True:
+                return particlesInRange
 
-            if self.northWest != None:
-                particlesInRange += self.northWest.queryRange(_range)
-                particlesInRange += self.northEast.queryRange(_range)
-                particlesInRange += self.southWest.queryRange(_range)
-                particlesInRange += self.southEast.queryRange(_range)
+        for particle in self.particles:
+            if _range.containsParticle(particle):
+                particlesInRange.append(particle)
+        if self.northWest != None:
+            particlesInRange += self.northWest.queryRange(_range)
+            particlesInRange += self.northEast.queryRange(_range)
+            particlesInRange += self.southWest.queryRange(_range)
+            particlesInRange += self.southEast.queryRange(_range)
 
-            return particlesInRange
+        # if self.boundary.intersects(_range):
+        #     return particlesInRange
+        # else:
+        #     for particle in self.particles:
+        #         if _range.containsParticle(particle):
+        #             particlesInRange.append(particle)
+        #
+        #     if self.northWest != None:
+        #         particlesInRange += self.northWest.queryRange(_range)
+        #         particlesInRange += self.northEast.queryRange(_range)
+        #         particlesInRange += self.southWest.queryRange(_range)
+        #         particlesInRange += self.southEast.queryRange(_range)
+        #
+        #     return particlesInRange
+        return particlesInRange
 
     def Show(self, screen):
         self.boundary.Draw(screen)

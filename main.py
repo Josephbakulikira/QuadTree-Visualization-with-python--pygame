@@ -32,6 +32,7 @@ for i in range(150):
 # print(points)
 moveParticle = True
 particleCollision = True
+showRange = False
 run = True
 while run:
     screen.fill(Background)
@@ -51,6 +52,8 @@ while run:
             if event.key == pygame.K_e:
                 moveParticle = not moveParticle
                 particleCollision = moveParticle
+            if event.key == pygame.K_r:
+                showRange = not showRange
         if event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
             particle = Particle(Vector2(x, y), RADIUS, (255, 255, 255))
@@ -67,10 +70,21 @@ while run:
     for particle in particles:
         xx, yy = particle.position
         r = RADIUS * 3
+
+        rangeCircle = Circle(Vector2(xx, yy), r)
+        rangeCircle.color = (0, 255 ,255)
+        rangeCircle.lineThickness = 1
+
+        # rectange range example
         rangeRect = Rectangle(Vector2(xx - r/2, yy - r/2), Vector2(r, r))
         rangeRect.color = (190, 210, 55)
-        rangeRect.lineThickness = 3
-        others = quadtree.queryRange(rangeRect)
+        rangeRect.lineThickness = 1
+
+        # rangeRect or rangeCircle
+        range = rangeRect
+        if showRange:
+            range.Draw(screen)
+        others = quadtree.queryRange(range)
         for other in others:
             if particle != other:
                 if particle.collide(other) == True:
