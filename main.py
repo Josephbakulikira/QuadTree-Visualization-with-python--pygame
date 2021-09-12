@@ -52,7 +52,7 @@ while run:
             if event.key == pygame.K_e:
                 moveParticle = not moveParticle
                 particleCollision = moveParticle
-            if event.key == pygame.K_r:
+            if event.key == pygame.K_r or event.key == pygame.K_SPACE:
                 showRange = not showRange
         if event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
