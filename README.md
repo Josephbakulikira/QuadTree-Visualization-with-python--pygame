@@ -1,22 +1,20 @@
 # QuadTree-Visualization-with-python--pygame
 
+### [Youtube](https://www.youtube.com/c/Auctux)
+
 --- 
 ### Requirements
-      Pygame -> pip install pygame
+>Pygame -> pip install pygame
 
 ### Controls
       Press Mouse -> to instantiate a particle
-      Press Space -> to toggle the query range
+      Press Space or r-> to toggle draw query range
+      Press Enter or q -> to toggle draw quadtree
       ESC         -> to close the window(quit) 
 ---
 ### Files
       test.py for a simple quadtree
-      test2.py quadtree with particle collisions
-
-### Youtube
-
-  ## Check out my youtube channel: https://www.youtube.com/c/Auctux
-
+      main.py quadtree with particle collisions
 ---
 ### Ressources
    ##### wikipedia: https://en.wikipedia.org/wiki/Quadtree
