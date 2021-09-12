@@ -17,8 +17,8 @@
       main.py quadtree with particle collisions
 ---
 ### Ressources
->[wikipedia](https://en.wikipedia.org/wiki/Quadtree)
->[coding Train channel](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw)
+-[wikipedia](https://en.wikipedia.org/wiki/Quadtree)
+-[coding Train channel](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw)
 ---
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/48150537/128624779-87958fdc-9758-4fc1-9d10-73587c5e603b.gif)
 ---
