@@ -7,10 +7,10 @@
 >Pygame -> pip install pygame
 
 ### Controls
-      Press Mouse -> to instantiate a particle
-      Press Space or r-> to toggle draw query range
-      Press Enter or q -> to toggle draw quadtree
-      ESC         -> to close the window(quit) 
+      Press Mouse       -> to instantiate a particle
+      Press Space or r  -> to toggle draw query range
+      Press Enter or q  -> to toggle draw quadtree
+      ESC               -> to close the window(quit) 
 ---
 ### Files
       test.py for a simple quadtree
